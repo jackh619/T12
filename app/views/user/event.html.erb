@@ -1,0 +1,49 @@
+<h1>User#event</h1>
+<%= link_to('Calendar Page', {controller: 'user', action: 'calendar'}) %>
+<%# <%= link_to('Commitment Page', {controller: 'user', action: 'commitment'}) %> %>
+<%= link_to('Team Roster Page', {controller: 'user', action: 'team_roster'}) %>
+<p>Find me in app/views/user/event.html.erb</p>
+<div>
+  <h2><%= @event.event_name %></h2>
+
+  <table>
+    <tr class="header">
+      <th>#</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Location</th>
+    </tr>
+    <tr>
+      <td><%= @event.id %></td>
+      <td><%= @event.event_name %></td>
+      <td><%= @event.event_type %></td>
+      <td><%= @event.date_time %></td>
+      <td><%= @event.description %></td>
+      <td><%= @event.location %></td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <h2>Students Signed Up For This Event</h2>
+
+
+  <table>
+    <tr class="header">
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Commitments</th>
+    </tr>
+    <% @students.each do |student| %>
+    <tr>
+      <td><%= student.id %></td>
+      <td><%= student.first_name %></td>
+      <td><%= student.last_name %></td>
+      <td><%= link_to("View", controller: 'user', action: 'commitment', id: student.id) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

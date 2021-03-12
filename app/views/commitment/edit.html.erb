@@ -1,0 +1,31 @@
+<%= link_to('Back', 'javascript:history.back()') %>
+
+<div class="team roster new">
+  <h2>Update member</h2>
+
+  <%= form_for(@commitment, :url => commitment_path(@student), :method => 'patch') do |f| %>
+
+    <table summary="students form fields">
+        <tr>
+          <th>First name</th>
+          <td><%= @student.first_name %></td>
+        </tr>
+        <tr>
+          <th>Last name</th>
+          <td><%= @student.last_name %></td>
+        </tr>
+        <tr>
+          <th>Event</th>
+          <th><%= f.select :id, @events.map { |e| [e.event_name, e.id]} %></th>
+
+        </tr>
+
+    </table>
+    <%=f.hidden_field :commitment_id, value: @commitment.id %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Commitment") %>
+    </div>
+
+  <% end %>
+</div>

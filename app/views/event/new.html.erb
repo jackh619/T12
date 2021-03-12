@@ -1,0 +1,37 @@
+<%= link_to('Back', 'javascript:history.back()') %>
+
+<div class="team roster new">
+  <h2>Create Event</h2>
+
+  <%= form_for(@event, :url => event_index_path, :method => 'post') do |f| %>
+
+    <table summary="book form fields">
+        <tr>
+            <th>Event name</th>
+            <td><%= f.text_field(:event_name) %></td>
+        </tr>
+        <tr>
+            <th>Event type</th>
+            <td><%= f.text_field(:event_type) %></td>
+        </tr>
+        <tr>
+            <th>Date time</th>
+            <td><%= f.text_field(:date_time) %></td>
+        </tr>
+        <tr>
+            <th>location</th>
+            <td><%= f.text_field(:location) %></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><%= f.text_field(:description) %></td>
+        </tr>
+
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Create new event") %>
+    </div>
+
+  <% end %>
+</div>

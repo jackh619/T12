@@ -1,0 +1,33 @@
+
+<%= link_to("team roster", team_roster_index_path , :class => 'action new') %>
+<%= link_to("calendar", calendar_index_path , :class => 'action new') %>
+<%= link_to("event", event_index_path , :class => 'action new') %>
+
+<div>
+<h2>Commitment</h2>
+
+<%#= link_to("Add New Commitment", new_commitment_path , :class => 'action new') %>
+  <a href="/commitment/new?id=<%= @student.id %>">Add New Commitment</a>
+
+  <h2><%= @student.first_name %>'s Commitments</h2>
+
+      <table>
+        <tr class="header">
+          <th>#</th>
+          <th>Event Name</th>
+          <th>View Details</th>
+        </tr>
+        <% @commitments.each do |commitment| %>
+        <tr>
+          <td><%= commitment.event.id %></td>
+          <td><%= commitment.event.event_name %></td>
+          <td class="actions">
+            <%= link_to('Event Page', {controller: 'event', action: 'index', id: commitment.event.id}) %>
+            <%= link_to('Edit', {controller: 'commitment', action: 'edit', id: commitment.id}) %>
+            <%= link_to('Delete', {controller: 'commitment', action: 'delete', id: commitment.id}) %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+</div>
+

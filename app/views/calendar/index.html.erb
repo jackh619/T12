@@ -1,0 +1,14 @@
+
+<%= link_to("team roster", team_roster_index_path , :class => 'action new') %>
+<%= link_to("event", event_index_path , :class => 'action new') %>
+
+
+<%= month_calendar(events: @meetings, attribute: :date_time) do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <a href="/event/<%= meeting.id %>"><%= meeting.event_name %></a>
+    </div>
+  <% end %>
+<% end %>

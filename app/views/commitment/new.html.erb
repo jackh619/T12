@@ -1,0 +1,36 @@
+<%= link_to("<< Back to team roster", commitment_index_path, :class => 'back-link') %>
+
+<div class="team roster new">
+  <h2>Create Commitment</h2>
+
+  <%= form_for(@event, :url => commitment_index_path, :method => 'post') do |f| %>
+
+    <table summary="book form fields">
+      <tr><th>First name: <%=@student.first_name %>  </th></tr><br>
+      <tr><th>Last name: <%=@student.last_name %></th></tr>
+
+      <%=f.hidden_field :student_id, value: @student.id %>
+<!--        <tr>-->
+<!--            <th>First name</th>-->
+<!--            <td><%#= f.text_field(:) %></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Last name</th>-->
+<!--            <td><%#= f.text_field(:last_name) %></td>-->
+<!--        </tr>-->
+      <%# form_with(scope: "events") do |f| %>
+        <%#= f.text_field :name %>
+      <tr><th><%= f.select :id, @events.map { |e| [e.event_name, e.id]} %></th></tr>
+      <%#= f.submit %>
+        <%# end %>
+
+
+    </table>
+
+
+    <div class="form-buttons">
+      <%= f.submit("Create new commitment") %>
+    </div>
+
+  <% end %>
+</div>

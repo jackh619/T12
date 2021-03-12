@@ -1,0 +1,25 @@
+<%= link_to('Back', 'javascript:history.back()') %>
+
+<div>
+<%= form_for(team_roster_index_path) do |f| %>
+  <h2>Students Signed Up For <%= @event.event_name %></h2>
+
+  <table>
+    <tr class="header">
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Commitments</th>
+    </tr>
+    <% @students.each do |student| %>
+    <tr>
+      <td><%= student.id %></td>
+      <td><%= student.first_name %></td>
+      <td><%= student.last_name %></td>
+      <td><a href="/commitment/<%=student.id %>">View</a></td>
+<!--      <td><%#= link_to("View", controller: 'commitment', action: 'index', id: student.id) %></td>-->
+    </tr>
+    <% end %>
+  </table>
+  <% end %>
+</div>

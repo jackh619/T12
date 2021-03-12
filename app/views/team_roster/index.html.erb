@@ -1,0 +1,35 @@
+<%= link_to("Calendar", calendar_index_path , :class => 'action new') %>
+<%= link_to("event", event_index_path , :class => 'action new') %>
+
+<div>
+  <h2>Team Roster</h2>
+
+   <%= link_to("Add New Student", new_team_roster_path , :class => 'action new') %>
+
+  <table>
+    <tr class="header">
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Class Year</th>
+      <th>A&M Eamil</th>
+      <th>Phone Number</th>
+    </tr>
+    <% @student.each do |student| %>
+    <tr>
+      <td><%= student.id %></td>
+      <td><%= student.first_name %></td>
+      <td><%= student.last_name %></td>
+      <td><%= student.class_year %></td>
+      <td><%= student.email %></td>
+      <td><%= student.phone %></td>
+      <td class="actions"> 
+        <%= link_to("Show Commitments", commitment_path(student), class: 'action show') %>
+        <%= link_to("Edit", edit_team_roster_path(student), :class => 'action edit') %>
+        <%= link_to("Delete", delete_team_roster_path(student), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+

@@ -1,0 +1,38 @@
+<%= link_to('Back', 'javascript:history.back()') %>
+<div class="team roster new">
+  <h2>Delete member</h2>
+
+  <%= form_for(@student, :url => team_roster_path, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this member? </p>
+
+    <table summary="book form fields">
+        <tr>
+            <th>First name</th>
+            <td><%= @student.first_name %></td>
+        </tr>
+        <tr>
+            <th>Last name</th>
+            <td><%= @student.last_name %></td>
+        </tr>
+        <tr>
+            <th>Class year</th>
+            <td><%= @student.class_year %></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><%= @student.email %></td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td><%= @student.phone %></td>
+        </tr>
+
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete student") %>
+    </div>
+
+  <% end %>
+</div>

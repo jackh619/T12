@@ -1,0 +1,7 @@
+<h1>User#calendar</h1>
+<%# <%= link_to('Commitment Page', {controller: 'user', action: 'commitment'}) %> %>
+<%= link_to('Team Roster Page', {controller: 'user', action: 'team_roster'}) %>
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
+

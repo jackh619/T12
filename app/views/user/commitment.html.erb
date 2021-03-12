@@ -1,0 +1,20 @@
+<h1>User#commitment</h1>
+<%= link_to('Event Page', {controller: 'user', action: 'event'}) %>
+<%= link_to('Calendar Page', {controller: 'user', action: 'calendar'}) %>
+<%= link_to('Team Roster Page', {controller: 'user', action: 'team_roster'}) %>
+<div>
+  <h2>Your (Clint's) Commitments</h2>
+
+  <table>
+    <tr class="header">
+      <th>#</th>
+      <th>Event Name</th>
+    </tr>
+    <% @commitments.each do |commitment| %>
+    <tr>
+      <td><%= commitment.event.id %></td>
+      <td><%= commitment.event.event_name %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
